@@ -1,0 +1,322 @@
+ytboost/
+│── index.html
+│── blog.html
+│── article.html
+│── resources.html
+│── about.html
+│── contact.html
+│── style.css
+│── script.js                     
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YTBoost</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">YTBoost</div>
+  <nav id="nav">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</header>
+
+<section class="hero">
+  <h1>Grow Your YouTube Channel Faster 🚀</h1>
+  <p>Learn editing, thumbnails, and viral strategies</p>
+  <div class="buttons">
+    <a href="blog.html" class="btn">Start Learning</a>
+    <a href="blog.html" class="btn secondary">Explore Articles</a>
+  </div>
+</section>
+
+<section class="categories">
+  <h2>Categories</h2>
+  <div class="grid">
+    <div class="card">Video Editing Tips</div>
+    <div class="card">Thumbnail Design</div>
+    <div class="card">Viral Growth Hacks</div>
+    <div class="card">Free Resources</div>
+  </div>
+</section>
+
+<section class="articles">
+  <h2>Featured Articles</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>Top 10 Video Editing Tips</h3>
+      <p>Boost your editing skills fast.</p>
+      <a href="article.html">Read More</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>Viral YouTube Shorts</h3>
+      <p>Learn how to go viral.</p>
+      <a href="article.html">Read More</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>Best Free Editing Apps</h3>
+      <p>Top tools in 2026.</p>
+      <a href="article.html">Read More</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 YTBoost</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blog - YTBoost</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">YTBoost</div>
+</header>
+
+<section class="articles">
+<h2>All Articles</h2>
+
+<input type="text" id="search" placeholder="Search..." onkeyup="searchPosts()">
+
+<div class="grid" id="postList">
+
+<div class="card post">
+<h3>Top 10 Video Editing Tips for Beginners</h3>
+<p>Improve editing fast</p>
+<a href="article.html">Read More</a>
+</div>
+
+<div class="card post">
+<h3>How to Make Viral YouTube Shorts</h3>
+<p>Go viral easily</p>
+<a href="article.html">Read More</a>
+</div>
+
+<div class="card post">
+<h3>Best Free Editing Apps in 2026</h3>
+<p>Top tools</p>
+<a href="article.html">Read More</a>
+</div>
+
+</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Article</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<section class="article">
+<h1>Top 10 Video Editing Tips for Beginners</h1>
+<p>By Admin | 2026</p>
+
+<img src="https://via.placeholder.com/600">
+
+<h2>1. Keep Cuts Clean</h2>
+<p>Avoid unnecessary transitions.</p>
+
+<div class="tip">🔥 Tip: Simplicity wins.</div>
+
+<h2>2. Use Music Smartly</h2>
+<p>Match beats with cuts.</p>
+
+<div class="share">
+<button>Share</button>
+<button>Tweet</button>
+</div>
+
+</section>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resources</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<section class="articles">
+<h2>Free Resources</h2>
+
+<div class="grid">
+<div class="card">LUT Pack <button>Download</button></div>
+<div class="card">Presets <button>Download</button></div>
+<div class="card">Fonts <button>Download</button></div>
+</div>
+
+</section>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>About</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<section class="article">
+<h1>About YTBoost</h1>
+<p>We help creators grow faster using smart strategies.</p>
+
+<h2>Mission</h2>
+<p>Helping creators succeed on YouTube.</p>
+</section>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<section class="article">
+<h2>Contact Us</h2>
+
+<form>
+<input type="text" placeholder="Name" required>
+<input type="email" placeholder="Email" required>
+<textarea placeholder="Message"></textarea>
+<button type="submit">Send</button>
+</form>
+
+</section>
+</body>
+</html>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: #111;
+  position: sticky;
+  top: 0;
+}
+
+.logo { color: #6c5ce7; font-weight: bold; }
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu-toggle { display: none; cursor: pointer; }
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #6c5ce7;
+  margin: 10px;
+  display: inline-block;
+}
+
+.secondary { background: transparent; border: 1px solid #6c5ce7; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.article {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.tip {
+  background: #222;
+  padding: 10px;
+  border-left: 4px solid #6c5ce7;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+}
+
+button {
+  background: #6c5ce7;
+  border: none;
+  padding: 10px;
+  color: white;
+}
+
+@media(max-width:768px){
+  nav { display: none; }
+  .menu-toggle { display: block; }
+}
+function toggleMenu() {
+  const nav = document.getElementById("nav");
+  nav.style.display = nav.style.display === "block" ? "none" : "block";
+}
+
+function searchPosts() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let posts = document.querySelectorAll(".post");
+
+  posts.forEach(post => {
+    let text = post.innerText.toLowerCase();
+    post.style.display = text.includes(input) ? "block" : "none";
+  });
+}
