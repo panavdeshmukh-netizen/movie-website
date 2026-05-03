@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditConnect — Hire Professional Video Editors Worldwide</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  /* ── CSS Variables ── */
+  :root {
+    --bg:        #0a0a0f;
+    --bg2:       #111118;
+    --bg3:       #17171f;
+    --card:      #1c1c27;
+    --border:    rgba(255,255,255,0.07);
+    --accent:    #ff4d6d;
+    --accent2:   #7b61ff;
+    --gold:      #f0b429;
+    --text:      #e8e8f0;
+    --muted:     #6b6b80;
+    --radius:    14px;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --transition: 0.25s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  button { cursor: pointer; font-family: var(--font-body); }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 3px; }
+
+  /* ── Noise Overlay ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ── Utility ── */
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 90px 0; }
+  .section-label {
+    font-family: var(--font-head);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 520px;
+    margin-bottom: 48px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(123,97,255,0.15);
+    color: var(--accent2);
+    border: 1px solid rgba(123,97,255,0.3);
+    padding: 3px 10px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .badge-red {
+    background: rgba(255,77,109,0.12);
+    color: var(--accent);
+    border-color: rgba(255,77,109,0.25);
+  }
+  .badge-gold {
+    background: rgba(240,180,41,0.12);
+    color: var(--gold);
+    border-color: rgba(240,180,41,0.25);
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    font-size: 14px; font-weight: 500;
+    border: none;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #ff2a50; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,77,109,0.35); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+  }
+  .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
+  .btn-purple {
+    background: var(--accent2);
+    color: #fff;
+  }
+  .btn-purple:hover { background: #6a4fff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(123,97,255,0.35); }
+  .btn-ghost {
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+  .btn-sm { padding: 9px 18px; font-size: 13px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,15,0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; gap: 16px;
+  }
+  .logo {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 800;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-icon {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; align-items: center; gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--muted);
+    transition: var(--transition);
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg3); }
+  .nav-cta { display: flex; align-items: center; gap: 10px; }
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px;
+    background: none; border: none;
+    padding: 4px;
+  }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: var(--transition); }
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--bg2); border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    flex-direction: column; gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    padding: 11px 14px; border-radius: 8px; color: var(--text); font-size: 15px;
+    transition: var(--transition);
+  }
+  .mobile-menu a:hover { background: var(--bg3); }
+
+  /* ── PAGES ── */
+  .page { display: none; padding-top: 64px; }
+  .page.active { display: block; }
+
+  /* ══════════════════════════════════
+     HOME PAGE
+  ══════════════════════════════════ */
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 88vh;
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(123,97,255,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 80% 80%, rgba(255,77,109,0.1) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black, transparent);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 720px;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 13px; color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow .dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 18px; color: var(--muted); font-weight: 300;
+    margin-bottom: 36px; max-width: 500px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+  .hero-stats {
+    display: flex; gap: 36px; flex-wrap: wrap;
+  }
+  .stat-item { display: flex; flex-direction: column; gap: 2px; }
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 26px; font-weight: 800;
+    background: linear-gradient(135deg, #fff, var(--muted));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); }
+
+  /* ── Categories ── */
+  .cats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .cat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .cat-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  }
+  .cat-icon { font-size: 28px; }
+  .cat-name { font-family: var(--font-head); font-weight: 700; font-size: 15px; }
+  .cat-count { font-size: 12px; color: var(--muted); }
+
+  /* ── Editors Grid ── */
+  .editors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 20px;
+  }
+  .editor-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .editor-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .editor-card:hover { transform: translateY(-5px); box-shadow: 0 16px 50px rgba(0,0,0,0.4); }
+  .editor-card:hover::before { opacity: 1; }
+  .editor-avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 14px;
+    border: 2px solid var(--border);
+  }
+  .editor-name { font-family: var(--font-head); font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+  .editor-role { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .editor-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .editor-skill {
+    background: rgba(123,97,255,0.1); color: var(--accent2);
+    border: 1px solid rgba(123,97,255,0.2);
+    padding: 3px 9px; border-radius: 20px; font-size: 11px;
+  }
+  .editor-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 16px; border-top: 1px solid var(--border);
+  }
+  .editor-price { font-family: var(--font-head); font-size: 15px; font-weight: 700; }
+  .editor-price span { font-size: 12px; font-weight: 400; color: var(--muted); }
+  .editor-rating { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+  .editor-rating .star { color: var(--gold); }
+
+  /* ── Jobs Section (homepage) ── */
+  .jobs-list { display: flex; flex-direction: column; gap: 14px; }
+  .job-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px;
+    transition: var(--transition);
+    flex-wrap: wrap;
+  }
+  .job-card:hover { border-color: rgba(255,77,109,0.3); transform: translateX(4px); }
+  .job-info { flex: 1; min-width: 200px; }
+  .job-title { font-family: var(--font-head); font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  .job-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .job-meta-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+  .job-desc { color: var(--muted); font-size: 13px; margin-top: 8px; }
+  .job-budget {
+    font-family: var(--font-head); font-size: 20px; font-weight: 800;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  /* ── CTA Banner ── */
+  .cta-banner {
+    background: linear-gradient(135deg, rgba(123,97,255,0.15), rgba(255,77,109,0.1));
+    border: 1px solid rgba(123,97,255,0.2);
+    border-radius: 20px;
+    padding: 56px 48px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-banner::before {
+    content:'';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(123,97,255,0.08), transparent);
+  }
+  .cta-banner h2 { font-family: var(--font-head); font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 12px; }
+  .cta-banner p { color: var(--muted); margin-bottom: 28px; font-size: 16px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--accent); transition: var(--transition); }
+  footer a:hover { color: #fff; }
+
+  /* ══════════════════════════════════
+     POST A JOB PAGE
+  ══════════════════════════════════ */
+  .page-hero {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 56px;
+  }
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 44px;
+    max-width: 680px;
+    margin: 0 auto 80px;
+  }
+  .form-grid { display: grid; gap: 22px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-label {
+    font-size: 13px; font-weight: 500; color: var(--text);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .form-label .req { color: var(--accent); }
+  .form-input, .form-textarea, .form-select {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 12px 16px;
+    transition: var(--transition);
+    outline: none;
+    width: 100%;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--accent2);
+    box-shadow: 0 0 0 3px rgba(123,97,255,0.15);
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-select option { background: var(--bg3); }
+  .success-msg {
+    display: none;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.25);
+    border-radius: 12px;
+    padding: 18px 24px;
+    color: #22c55e;
+    font-size: 14px;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  /* ══════════════════════════════════
+     FIND JOBS PAGE
+  ══════════════════════════════════ */
+  .jobs-page-grid {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-bottom: 80px;
+  }
+  .jobs-filters {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 30px; font-size: 13px;
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--muted); cursor: pointer; transition: var(--transition);
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--accent2); color: #fff; border-color: var(--accent2);
+  }
+  .job-card-full {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 30px;
+    transition: var(--transition);
+  }
+  .job-card-full:hover { border-color: rgba(123,97,255,0.35); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+  .jcf-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  .jcf-title { font-family: var(--font-head); font-weight: 700; font-size: 18px; }
+  .jcf-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .jcf-desc { color: var(--muted); font-size: 14px; line-height: 1.65; margin-bottom: 18px; }
+  .jcf-footer { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+  /* ── Apply Modal ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 560px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s cubic-bezier(.4,0,.2,1);
+  }
+  @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--muted); width: 32px; height: 32px;
+    border-radius: 8px; font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition);
+  }
+  .modal-close:hover { color: var(--text); border-color: var(--accent); }
+  .modal-title { font-family: var(--font-head); font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+  .modal-sub { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+
+  /* ══════════════════════════════════
+     FREELANCERS PAGE
+  ══════════════════════════════════ */
+  .freelancers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+    margin-bottom: 80px;
+  }
+  .freelancer-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .freelancer-card:hover { transform: translateY(-5px); box-shadow: 0 16px 50px rgba(0,0,0,0.4); border-color: rgba(123,97,255,0.3); }
+  .fc-header {
+    padding: 28px 28px 20px;
+    background: linear-gradient(135deg, rgba(123,97,255,0.06), rgba(255,77,109,0.04));
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 16px; align-items: center;
+  }
+  .fc-avatar {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+    border: 2px solid var(--border);
+  }
+  .fc-info { flex: 1; }
+  .fc-name { font-family: var(--font-head); font-weight: 700; font-size: 18px; margin-bottom: 3px; }
+  .fc-role { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .fc-body { padding: 20px 28px; }
+  .fc-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .fc-portfolio { margin-bottom: 18px; }
+  .fc-portfolio-title { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .fc-portfolio-links { display: flex; flex-direction: column; gap: 6px; }
+  .fc-portfolio-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 12px;
+    font-size: 13px; color: var(--muted);
+    transition: var(--transition);
+  }
+  .fc-portfolio-link:hover { border-color: var(--accent2); color: var(--accent2); }
+  .fc-portfolio-link .link-icon { font-size: 14px; }
+  .fc-footer {
+    padding: 16px 28px 22px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .fc-price { font-family: var(--font-head); font-weight: 700; font-size: 16px; }
+  .fc-price span { font-size: 12px; font-weight: 400; color: var(--muted); }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-card { padding: 28px 20px; }
+    .modal { padding: 28px 20px; }
+    .cta-banner { padding: 36px 24px; }
+    .hero-stats { gap: 24px; }
+    .job-card { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">
+      <div class="logo-icon">▶</div>
+      Edit<span>Connect</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active" onclick="showPage('home',this)">Home</a></li>
+      <li><a href="#" onclick="showPage('findjobs',this)">Find Jobs</a></li>
+      <li><a href="#" onclick="showPage('freelancers',this)">Editors</a></li>
+      <li><a href="#" onclick="showPage('postjob',this)">Post a Job</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="btn btn-outline btn-sm" onclick="showPage('findjobs')">Find Work</button>
+      <button class="btn btn-primary btn-sm" onclick="showPage('postjob')">Hire Editor</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');toggleMenu()">🏠 Home</a>
+  <a href="#" onclick="showPage('findjobs');toggleMenu()">💼 Find Jobs</a>
+  <a href="#" onclick="showPage('freelancers');toggleMenu()">👥 Editors</a>
+  <a href="#" onclick="showPage('postjob');toggleMenu()">➕ Post a Job</a>
+  <div style="display:flex;gap:10px;padding:8px 0;">
+    <button class="btn btn-outline btn-sm" style="flex:1" onclick="showPage('findjobs');toggleMenu()">Find Work</button>
+    <button class="btn btn-primary btn-sm" style="flex:1" onclick="showPage('postjob');toggleMenu()">Hire Editor</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          The #1 Video Editing Marketplace
+        </div>
+        <h1>Hire Professional<br><span class="highlight">Video Editors</span><br>Worldwide</h1>
+        <p class="hero-sub">Post your project or find editing jobs easily. Connect with top-tier video editors in seconds.</p>
+        <div class="hero-btns">
+          <button class="btn btn-primary" onclick="showPage('postjob')">
+            ✦ Hire an Editor
+          </button>
+          <button class="btn btn-outline" onclick="showPage('findjobs')">
+            Find Work →
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">2,400+</span>
+            <span class="stat-label">Freelance Editors</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">8,100+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section" style="padding-top:64px;">
+    <div class="container">
+      <div class="section-label">Browse By Type</div>
+      <h2 class="section-title">Editing Categories</h2>
+      <p class="section-sub">Whatever your video needs, we have specialists ready to help.</p>
+      <div class="cats-grid">
+        <div class="cat-card" onclick="showPage('findjobs')">
+          <div class="cat-icon">📺</div>
+          <div class="cat-name">YouTube Editing</div>
+          <div class="cat-count">340+ jobs</div>
+        </div>
+        <div class="cat-card" onclick="showPage('findjobs')">
+          <div class="cat-icon">📱</div>
+          <div class="cat-name">Reels / Shorts</div>
+          <div class="cat-count">512+ jobs</div>
+        </div>
+        <div class="cat-card" onclick="showPage('findjobs')">
+          <div class="cat-icon">💍</div>
+          <div class="cat-name">Wedding Videos</div>
+          <div class="cat-count">184+ jobs</div>
+        </div>
+        <div class="cat-card" onclick="showPage('findjobs')">
+          <div class="cat-icon">🎮</div>
+          <div class="cat-name">Gaming Videos</div>
+          <div class="cat-count">268+ jobs</div>
+        </div>
+        <div class="cat-card" onclick="showPage('findjobs')">
+          <div class="cat-icon">📣</div>
+          <div class="cat-name">Ads Editing</div>
+          <div class="cat-count">192+ jobs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Editors -->
+  <section class="section" style="background:var(--bg2);">
+    <div class="container">
+      <div class="section-label">Top Talent</div>
+      <h2 class="section-title">Featured Editors</h2>
+      <p class="section-sub">Hand-picked professionals with proven track records.</p>
+      <div class="editors-grid" id="home-editors"></div>
+      <div style="text-align:center;margin-top:36px;">
+        <button class="btn btn-outline" onclick="showPage('freelancers')">View All Editors →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Jobs -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Latest Opportunities</div>
+      <h2 class="section-title">Featured Jobs</h2>
+      <p class="section-sub">Fresh projects posted by clients worldwide.</p>
+      <div class="jobs-list" id="home-jobs"></div>
+      <div style="text-align:center;margin-top:36px;">
+        <button class="btn btn-outline" onclick="showPage('findjobs')">Browse All Jobs →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready to Get Started?</h2>
+        <p>Join thousands of editors and clients already using EditConnect.</p>
+        <div class="cta-btns">
+          <button class="btn btn-primary" onclick="showPage('postjob')">✦ Post a Job</button>
+          <button class="btn btn-purple" onclick="showPage('freelancers')">Browse Editors</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <strong>EditConnect</strong> — The Video Editing Marketplace &nbsp;·&nbsp;
+        Built with ♥ for creators worldwide
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ════════════════════════════════════
+     POST A JOB PAGE
+════════════════════════════════════ -->
+<div class="page" id="page-postjob">
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">For Clients</div>
+      <h1 class="section-title">Post a New Job</h1>
+      <p class="section-sub">Describe your project and get proposals from talented video editors worldwide.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-card">
+      <h2 style="font-family:var(--font-head);font-size:22px;font-weight:800;margin-bottom:6px;">Project Details</h2>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:28px;">All fields marked <span style="color:var(--accent)">*</span> are required.</p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Project Title <span class="req">*</span></label>
+          <input class="form-input" type="text" placeholder="e.g. YouTube Channel Editor for Tech Reviews" id="pj-title" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category <span class="req">*</span></label>
+          <select class="form-select" id="pj-cat">
+            <option value="">Select category...</option>
+            <option>YouTube Editing</option>
+            <option>Reels / Shorts</option>
+            <option>Wedding Videos</option>
+            <option>Gaming Videos</option>
+            <option>Ads Editing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project Description <span class="req">*</span></label>
+          <textarea class="form-textarea" placeholder="Describe what you need — style, length, tone, deliverables, raw footage details..." id="pj-desc"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Budget (USD) <span class="req">*</span></label>
+            <input class="form-input" type="text" placeholder="e.g. $150 or $100–$300" id="pj-budget" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Deadline <span class="req">*</span></label>
+            <input class="form-input" type="date" id="pj-deadline" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Contact Email <span class="req">*</span></label>
+          <input class="form-input" type="email" placeholder="your@email.com" id="pj-email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp Number <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+          <input class="form-input" type="tel" placeholder="+1 234 567 8900" id="pj-whatsapp" />
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;" onclick="submitJob()">
+          ✦ Post This Job
+        </button>
+        <div class="success-msg" id="pj-success">
+          🎉 Your job has been posted! Editors will reach out to you soon.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     FIND JOBS PAGE
+════════════════════════════════════ -->
+<div class="page" id="page-findjobs">
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">For Editors</div>
+      <h1 class="section-title">Find Editing Jobs</h1>
+      <p class="section-sub">Browse open projects and apply with your portfolio.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="jobs-filters" id="job-filters">
+      <button class="filter-btn active" onclick="filterJobs('all', this)">All</button>
+      <button class="filter-btn" onclick="filterJobs('YouTube Editing', this)">YouTube</button>
+      <button class="filter-btn" onclick="filterJobs('Reels / Shorts', this)">Reels / Shorts</button>
+      <button class="filter-btn" onclick="filterJobs('Wedding Videos', this)">Wedding</button>
+      <button class="filter-btn" onclick="filterJobs('Gaming Videos', this)">Gaming</button>
+      <button class="filter-btn" onclick="filterJobs('Ads Editing', this)">Ads</button>
+    </div>
+    <div class="jobs-page-grid" id="jobs-page-list"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     FREELANCERS PAGE
+════════════════════════════════════ -->
+<div class="page" id="page-freelancers">
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">Our Community</div>
+      <h1 class="section-title">Browse Editors</h1>
+      <p class="section-sub">Discover skilled video editors with verified portfolios.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="freelancers-grid" id="freelancers-grid"></div>
+  </div>
+</div>
+
+<!-- ── Apply Modal ── -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title">Apply for this Job</div>
+    <p class="modal-sub" id="apply-job-title" style="color:var(--accent2);font-weight:500;"></p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="form-label">Your Name <span class="req">*</span></label>
+        <input class="form-input" type="text" placeholder="Alex Johnson" id="ap-name" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Skills <span class="req">*</span></label>
+        <input class="form-input" type="text" placeholder="Premiere Pro, After Effects, Color Grading..." id="ap-skills" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Portfolio Link <span class="req">*</span></label>
+        <input class="form-input" type="url" placeholder="https://youtube.com/yourchannel" id="ap-portfolio" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Expected Price (USD) <span class="req">*</span></label>
+        <input class="form-input" type="text" placeholder="$120" id="ap-price" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contact (Email / WhatsApp) <span class="req">*</span></label>
+        <input class="form-input" type="text" placeholder="your@email.com or +1 234..." id="ap-contact" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Cover Note</label>
+        <textarea class="form-textarea" placeholder="Tell the client why you're the best fit..." id="ap-note" style="min-height:90px;"></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;" onclick="submitApplication()">
+        Submit Application →
+      </button>
+      <div class="success-msg" id="ap-success">
+        ✅ Application sent! The client will review and contact you soon.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════
+   DATA
+══════════════════════════════════ */
+const editors = [
+  { name: "Arjun Mehta", role: "YouTube & Vlog Editor", avatar: "🧑🏽‍💻", skills: ["Premiere Pro", "After Effects", "Color Grading"], price: "$40/hr", rating: "4.9", reviews: 142 },
+  { name: "Sofia Rossi", role: "Wedding & Event Editor", avatar: "👩🏻‍🎨", skills: ["DaVinci Resolve", "Motion Graphics", "Sound Design"], price: "$55/hr", rating: "5.0", reviews: 87 },
+  { name: "Marcus Lee", role: "Gaming Content Creator", avatar: "🧑🏾‍🎮", skills: ["Vegas Pro", "OBS", "Thumbnail Design"], price: "$30/hr", rating: "4.8", reviews: 210 },
+  { name: "Priya Kapoor", role: "Reels & Short-Form Expert", avatar: "👩🏽‍💼", skills: ["CapCut", "Premiere Pro", "Transition Design"], price: "$25/hr", rating: "4.9", reviews: 324 },
+  { name: "Jake Williams", role: "Commercial Ad Editor", avatar: "🧑🏼‍💼", skills: ["After Effects", "Cinema 4D", "VFX"], price: "$70/hr", rating: "4.7", reviews: 61 },
+  { name: "Amara Osei", role: "Documentary & Film Editor", avatar: "👩🏿‍🎬", skills: ["Avid Media Composer", "Resolve", "Storytelling"], price: "$60/hr", rating: "5.0", reviews: 48 },
+];
+
+const jobs = [
+  { id: 1, title: "Long-Form YouTube Editor for Finance Channel", cat: "YouTube Editing", budget: "$200–$350", deadline: "2025-07-15", desc: "Looking for an editor for weekly 15–20 min finance videos. Must include motion graphics, lower thirds, and clean cuts. Raw footage provided via Google Drive.", urgent: true },
+  { id: 2, title: "Instagram Reels Editor — 10 Clips/Month", cat: "Reels / Shorts", budget: "$150/mo", deadline: "2025-07-01", desc: "Fashion brand needs a creative editor for 10 Reels per month. Trendy transitions, music sync, and text overlays required. Brief provided.", urgent: false },
+  { id: 3, title: "Wedding Film Editor — Full Ceremony + Highlights", cat: "Wedding Videos", budget: "$400", deadline: "2025-08-20", desc: "Need a cinematic wedding video editor for a 2-hour ceremony. Deliverables: 4-min highlight reel + full ceremony cut. DaVinci Resolve preferred.", urgent: false },
+  { id: 4, title: "Gaming Montage Editor for Twitch Streamer", cat: "Gaming Videos", budget: "$80–$120", deadline: "2025-06-28", desc: "Weekly 10-min gaming highlight videos from Valorant/CS2 gameplay. Need high-energy edits, kill-cam effects, and background music. Fast turnaround required.", urgent: true },
+  { id: 5, title: "Product Ad Editor — 3 x 30-second Ads", cat: "Ads Editing", budget: "$250", deadline: "2025-07-10", desc: "E-commerce brand needs 3 short product ads (30s each) for Meta ads. Hook-focused, clean visuals, subtitles required. Assets provided.", urgent: false },
+  { id: 6, title: "YouTube Tech Review Editor", cat: "YouTube Editing", budget: "$120–$180", deadline: "2025-07-22", desc: "10–12 min tech review videos, bi-weekly. B-roll integration, chapter markers, end screens. Must know Premiere Pro.", urgent: false },
+  { id: 7, title: "TikTok Shorts Batch Editor — 20 Clips", cat: "Reels / Shorts", budget: "$200", deadline: "2025-07-05", desc: "Motivational content creator needs 20 TikTok clips edited from talking-head footage. Auto-captions, zoom effects, music.", urgent: true },
+];
+
+const freelancers = [
+  {
+    name: "Arjun Mehta", role: "YouTube & Vlog Editor", avatar: "🧑🏽‍💻",
+    skills: ["Premiere Pro", "After Effects", "Color Grading", "Motion Graphics"],
+    portfolio: [
+      { label: "Tech Review Series", url: "#" },
+      { label: "Travel Vlog — Japan", url: "#" },
+      { label: "Brand Documentary", url: "#" },
+    ],
+    price: "$40/hr", rating: "4.9", reviews: 142, location: "Mumbai, India"
+  },
+  {
+    name: "Sofia Rossi", role: "Wedding & Event Editor", avatar: "👩🏻‍🎨",
+    skills: ["DaVinci Resolve", "Premiere Pro", "Sound Design", "Color Science"],
+    portfolio: [
+      { label: "Amalfi Coast Wedding", url: "#" },
+      { label: "Corporate Event Recap", url: "#" },
+    ],
+    price: "$55/hr", rating: "5.0", reviews: 87, location: "Milan, Italy"
+  },
+  {
+    name: "Marcus Lee", role: "Gaming Content Creator", avatar: "🧑🏾‍🎮",
+    skills: ["Vegas Pro", "After Effects", "Thumbnail Design", "OBS"],
+    portfolio: [
+      { label: "Valorant Montage", url: "#" },
+      { label: "Minecraft Series Trailer", url: "#" },
+      { label: "Gaming Channel Intro", url: "#" },
+    ],
+    price: "$30/hr", rating: "4.8", reviews: 210, location: "Atlanta, USA"
+  },
+  {
+    name: "Priya Kapoor", role: "Reels & Short-Form Expert", avatar: "👩🏽‍💼",
+    skills: ["CapCut", "Premiere Pro", "Transition Design", "Typography"],
+    portfolio: [
+      { label: "Fashion Brand Reels Pack", url: "#" },
+      { label: "Fitness Influencer Series", url: "#" },
+    ],
+    price: "$25/hr", rating: "4.9", reviews: 324, location: "Delhi, India"
+  },
+  {
+    name: "Jake Williams", role: "Commercial Ad Editor", avatar: "🧑🏼‍💼",
+    skills: ["After Effects", "Cinema 4D", "VFX", "Sound Design"],
+    portfolio: [
+      { label: "Luxury Watch Ad", url: "#" },
+      { label: "App Launch Campaign", url: "#" },
+      { label: "Restaurant Promo", url: "#" },
+    ],
+    price: "$70/hr", rating: "4.7", reviews: 61, location: "London, UK"
+  },
+  {
+    name: "Amara Osei", role: "Documentary & Film Editor", avatar: "👩🏿‍🎬",
+    skills: ["Avid", "DaVinci Resolve", "Storytelling", "Color Grading"],
+    portfolio: [
+      { label: "Social Impact Documentary", url: "#" },
+      { label: "Short Film — 'Roots'", url: "#" },
+    ],
+    price: "$60/hr", rating: "5.0", reviews: 48, location: "Accra, Ghana"
+  },
+];
+
+/* ══════════════════════════════════
+   RENDER
+══════════════════════════════════ */
+function renderEditorCard(e) {
+  return `
+    <div class="editor-card">
+      <div class="editor-avatar" style="background:linear-gradient(135deg,rgba(123,97,255,.15),rgba(255,77,109,.1))">${e.avatar}</div>
+      <div class="editor-name">${e.name}</div>
+      <div class="editor-role">${e.role}</div>
+      <div class="editor-skills">${e.skills.map(s=>`<span class="editor-skill">${s}</span>`).join('')}</div>
+      <div class="editor-footer">
+        <div class="editor-price">${e.price} <span>starting</span></div>
+        <div class="editor-rating"><span class="star">★</span> ${e.rating} <span style="color:var(--muted)">(${e.reviews})</span></div>
+      </div>
+    </div>`;
+}
+
+function renderHomeJob(j) {
+  return `
+    <div class="job-card">
+      <div class="job-info">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap;">
+          <div class="job-title">${j.title}</div>
+          ${j.urgent ? '<span class="badge badge-red">🔥 Urgent</span>' : ''}
+        </div>
+        <div class="job-meta">
+          <span class="badge">${j.cat}</span>
+          <span class="job-meta-item">📅 ${j.deadline}</span>
+        </div>
+        <div class="job-desc">${j.desc.substring(0,100)}…</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
+        <div class="job-budget">${j.budget}</div>
+        <button class="btn btn-outline btn-sm" onclick="openApply(${j.id})">Apply Now</button>
+      </div>
+    </div>`;
+}
+
+function renderFullJobCard(j) {
+  return `
+    <div class="job-card-full">
+      <div class="jcf-header">
+        <div>
+          <div class="jcf-title">${j.title}</div>
+        </div>
+        <div class="job-budget">${j.budget}</div>
+      </div>
+      <div class="jcf-meta">
+        <span class="badge">${j.cat}</span>
+        ${j.urgent ? '<span class="badge badge-red">🔥 Urgent</span>' : ''}
+        <span class="job-meta-item" style="font-size:13px;color:var(--muted);">📅 Deadline: ${j.deadline}</span>
+      </div>
+      <div class="jcf-desc">${j.desc}</div>
+      <div class="jcf-footer">
+        <button class="btn btn-primary btn-sm" onclick="openApply(${j.id})">Apply Now →</button>
+        <button class="btn btn-ghost btn-sm">Save Job</button>
+      </div>
+    </div>`;
+}
+
+function renderFreelancerCard(f) {
+  const portfolioLinks = f.portfolio.map(p =>
+    `<a href="${p.url}" class="fc-portfolio-link"><span class="link-icon">▶</span>${p.label}</a>`
+  ).join('');
+  return `
+    <div class="freelancer-card">
+      <div class="fc-header">
+        <div class="fc-avatar" style="background:linear-gradient(135deg,rgba(123,97,255,.15),rgba(255,77,109,.1))">${f.avatar}</div>
+        <div class="fc-info">
+          <div class="fc-name">${f.name}</div>
+          <div class="fc-role">${f.role}</div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="color:var(--gold);">★</span>
+            <span style="font-size:13px;">${f.rating}</span>
+            <span style="color:var(--muted);font-size:12px;">(${f.reviews} reviews)</span>
+          </div>
+        </div>
+      </div>
+      <div class="fc-body">
+        <div class="fc-skills">${f.skills.map(s=>`<span class="editor-skill">${s}</span>`).join('')}</div>
+        <div class="fc-portfolio">
+          <div class="fc-portfolio-title">Portfolio</div>
+          <div class="fc-portfolio-links">${portfolioLinks}</div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);">📍 ${f.location}</div>
+      </div>
+      <div class="fc-footer">
+        <div class="fc-price">${f.price} <span>/ hour</span></div>
+        <button class="btn btn-primary btn-sm">Contact →</button>
+      </div>
+    </div>`;
+}
+
+/* ══════════════════════════════════
+   NAVIGATION
+══════════════════════════════════ */
+function showPage(id, linkEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if (linkEl) linkEl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // render content lazily
+  if (id === 'home') renderHome();
+  if (id === 'findjobs') renderJobsPage('all');
+  if (id === 'freelancers') renderFreelancers();
+}
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+/* ══════════════════════════════════
+   RENDER PAGES
+══════════════════════════════════ */
+function renderHome() {
+  document.getElementById('home-editors').innerHTML = editors.slice(0, 4).map(renderEditorCard).join('');
+  document.getElementById('home-jobs').innerHTML = jobs.slice(0, 4).map(renderHomeJob).join('');
+}
+
+let currentFilter = 'all';
+function renderJobsPage(filter) {
+  currentFilter = filter;
+  const list = filter === 'all' ? jobs : jobs.filter(j => j.cat === filter);
+  document.getElementById('jobs-page-list').innerHTML = list.map(renderFullJobCard).join('');
+}
+
+function filterJobs(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderJobsPage(cat);
+}
+
+function renderFreelancers() {
+  document.getElementById('freelancers-grid').innerHTML = freelancers.map(renderFreelancerCard).join('');
+}
+
+/* ══════════════════════════════════
+   APPLY MODAL
+══════════════════════════════════ */
+function openApply(jobId) {
+  const job = jobs.find(j => j.id === jobId);
+  document.getElementById('apply-job-title').textContent = '→ ' + job.title;
+  document.getElementById('ap-success').style.display = 'none';
+  ['ap-name','ap-skills','ap-portfolio','ap-price','ap-contact','ap-note'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('applyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('applyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('applyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function submitApplication() {
+  const name = document.getElementById('ap-name').value.trim();
+  const skills = document.getElementById('ap-skills').value.trim();
+  const portfolio = document.getElementById('ap-portfolio').value.trim();
+  const price = document.getElementById('ap-price').value.trim();
+  const contact = document.getElementById('ap-contact').value.trim();
+
+  if (!name || !skills || !portfolio || !price || !contact) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  const msg = document.getElementById('ap-success');
+  msg.style.display = 'block';
+  setTimeout(closeModal, 2200);
+}
+
+/* ══════════════════════════════════
+   POST JOB
+══════════════════════════════════ */
+function submitJob() {
+  const title  = document.getElementById('pj-title').value.trim();
+  const cat    = document.getElementById('pj-cat').value;
+  const desc   = document.getElementById('pj-desc').value.trim();
+  const budget = document.getElementById('pj-budget').value.trim();
+  const dl     = document.getElementById('pj-deadline').value;
+  const email  = document.getElementById('pj-email').value.trim();
+
+  if (!title || !cat || !desc || !budget || !dl || !email) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Add to jobs list (demo)
+  const newJob = {
+    id: jobs.length + 1,
+    title, cat, budget, deadline: dl, desc,
+    urgent: false
+  };
+  jobs.unshift(newJob);
+
+  document.getElementById('pj-success').style.display = 'block';
+  ['pj-title','pj-desc','pj-budget','pj-email','pj-whatsapp'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('pj-cat').value = '';
+  document.getElementById('pj-deadline').value = '';
+}
+
+/* ══════════════════════════════════
+   INIT
+══════════════════════════════════ */
+renderHome();
+</script>
+</body>
+</html>
